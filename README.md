@@ -41,7 +41,7 @@ uv pip install -r requirements.txt
 bash run_example.sh
 ```
 
-### parameters:
+### Parameters:
 ```shell
 python src/inference_path.py \
     --input_path examples \
