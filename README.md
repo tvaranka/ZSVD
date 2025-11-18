@@ -17,14 +17,11 @@
     <br>
   </p>
   
-  <table align="center">
-    <tr>
-    <video autoplay muted loop playsinline height="100%">
-            <source src="./assets/teaser.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </tr>
-  </table>
+  <div align="center">
+  <video src="https://github.com/user-attachments/assets/05cf67c5-a7a4-4785-81f2-202ffa3844f4" width="90%" poster=""> </video>
+  </div>
+  
+</p>
 
 This repository contains the deraining code of the WACV 2026 paper [ZSVD](https://arxiv.org/list/cs.CV/recent). 
 
