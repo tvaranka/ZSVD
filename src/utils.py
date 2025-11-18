@@ -91,6 +91,8 @@ def psnr_frames(gt: torch.Tensor, prediction: torch.Tensor) -> float:
     return torch.tensor(psnrs)
 
 
+# Inspired by 
+# https://github.com/inbarhub/DDPM_inversion/blob/58fc881772d34f0c24be9e34725d213731aa009d/ddm_inversion/inversion_utils.py#L212
 @torch.no_grad()
 def inversion_forward_process(
     pipe,
@@ -164,6 +166,8 @@ def inversion_forward_process(
     return xt, zts, xts
 
 
+# Inspired by 
+# https://github.com/inbarhub/DDPM_inversion/blob/58fc881772d34f0c24be9e34725d213731aa009d/ddm_inversion/inversion_utils.py#L212
 @torch.no_grad()
 def inversion_reverse_process(
     pipe,
@@ -243,6 +247,7 @@ def export_to_video_imageio(
     return output_video_path
 
 
+# https://github.com/huggingface/diffusers/blob/b7df4a5387fd65edf4f16fd5fc8c87a7c815a4c7/src/diffusers/models/attention_processor.py#L2275
 class CogVideoXAttnProcessor2_0Mod:
 
     def __init__(self):
@@ -335,6 +340,7 @@ class CogVideoXAttnProcessor2_0Mod:
         return hidden_states, encoder_hidden_states
 
 
+# https://github.com/huggingface/diffusers/blob/b7df4a5387fd65edf4f16fd5fc8c87a7c815a4c7/src/diffusers/models/attention_processor.py#L2275
 class CogVideoXAttnProcessor2:
 
     def __init__(self):
@@ -412,6 +418,7 @@ class CogVideoXAttnProcessor2:
         return hidden_states, encoder_hidden_states
 
 
+# https://github.com/huggingface/diffusers/blob/b7df4a5387fd65edf4f16fd5fc8c87a7c815a4c7/src/diffusers/models/transformers/cogvideox_transformer_3d.py#L38
 @maybe_allow_in_graph
 class CogVideoXBlockMod(nn.Module):
     def __init__(
@@ -480,6 +487,7 @@ class CogVideoXBlockMod(nn.Module):
         return hidden_states, encoder_hidden_states
 
 
+# https://github.com/huggingface/diffusers/blob/b7df4a5387fd65edf4f16fd5fc8c87a7c815a4c7/src/diffusers/models/transformers/cogvideox_transformer_3d.py#L38
 @maybe_allow_in_graph
 class CogVideoXBlock(nn.Module):
     def __init__(
