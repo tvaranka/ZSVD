@@ -1,1 +1,279 @@
-Hello world ZSVD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+            content="Zero-Shot Video Deraining Diffusion">
+    <meta name="keywords" content="Single View NVS, View-Dependent Effects, NeRF">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zero-Shot Video Deraining Diffusion</title>
+    <style>
+        .video-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Space between the videos */
+            max-width: 49%; /* Limit the width of the container */
+            margin-bottom: 0px;
+            margin: 0 auto;
+        }
+        .video-container-3 {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Space between the videos */
+            max-width: 100%; /* Limit the width of the container */
+            margin-bottom: 0px;
+            margin: 0 auto;
+        }
+        video {
+            max-width: 90%;
+            height: auto;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+            rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="./static/js/video_comparison.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      
+
+      
+    </div>
+
+  </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Zero-Shot Video Deraining with Video Diffusion Models</h1>
+            <h4 class="title is-4">WACV 2026</h4>
+            <div class="is-size-5 publication-authors" style="margin-bottom: 1em;">
+              <span class="author-block">
+                <a target="_blank" href="https://scholar.google.com/citations?user=5QWyHT4AAAAJ&hl=en">Tuomas Varanka</a>,
+                <a target="_blank" href="https://sites.google.com/view/juan-luis-gb/home">Juan Luis Gonzalez</a>,
+                <a target="_blank" href="https://scholar.google.com/citations?user=lDekV6IAAAAJ&amp;hl=en&amp;oi=ao">Hyeongwoo Kim</a>,
+                <a target="_blank" href="https://www.linkedin.com/in/pablo-garrido-485472169/">Pablo Garrido</a>,
+                <a target="_blank" href="https://xu-yao.github.io/">Xu Yao</a>
+              </span>
+            </div>
+            <div class="is-size-5 publication-authors" style="margin-bottom: 1em;">
+                <span class="author-block"><h4 class="title is-5"><img src="./static/images/logo.png" alt="Flawless AI Logo" style="height:1.1em; vertical-align:top; margin-right:0.4em;">Flawless AI</h4>
+                </span>
+            </div>
+  
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href=""
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href=""
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                    </a>
+                </span>
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href=""
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video autoplay muted loop playsinline height="100%">
+            <source src="static/videos/ra1_Rain.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <video id="teaser" autoplay muted loop playsinline height="100%">
+          <source src="static/videos/ra4_Rain.mp4"
+                  type="video/mp4">
+        </video>
+        <p>
+        We present <strong>ZSVD</strong>, a zero-shot video deraining method for complex dynamic scenes, leveraging a pretrained video diffusion model with attention switching and negative prompting to remove rain without model fine-tuning or supervised training.
+        </p>
+      </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                <p>
+                    Existing video deraining methods are often trained on paired datasets, either synthetic, which limits their ability to generalize to real-world rain, or captured by static cameras, which restricts their effectiveness in dynamic scenes with background and camera motion. Furthermore, recent works in fine-tuning diffusion models have shown promising results, but the fine-tuning tends to weaken the generative prior, limiting generalization to unseen cases. In this paper, we introduce <strong>the first zero-shot video deraining method</strong> for complex dynamic scenes that does not require synthetic data nor model fine-tuning, by leveraging a pretrained text-to-video diffusion model that demonstrates strong generalization capabilities. By inverting an input video into the latent space of diffusion models, its reconstruction process can be intervened and pushed away from the model's concept of rain using negative prompting. At the core of our approach is an attention switching mechanism that we found is crucial for maintaining dynamic backgrounds as well as structural consistency between the input and the derained video, mitigating artifacts introduced by naive negative prompting. Our approach is validated through extensive experiments on real-world rain datasets, demonstrating substantial improvements over prior methods and showcasing robust generalization without the need for supervised training.
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" style="text-align: center;">Method</h2>
+    <div class="hero-body">
+        <img src="./static/images/arch.png"/>
+      <p><b>Overview of ZSVD approach</b>. First, video inversion is performed to extract the initial noise latent. Next, the model performs a reconstruction step with the null prompt and a rain condition step with the negative prompt. The two paths are then combined using classifier-free guidance. Attention switching is applied for selected blocks, where the <i>K</i> and <i>V</i> are extracted from the null condition and are used to replace their conditional equivalents.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Video carousel -->
+<section class="hero teaser">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <h2 class="title is-3 has-text-centered">Comparison</h2>
+          <div id="results-carousel" class="carousel results-carousel" style="width:100%;">
+            <div class="item item-video1">
+              <video poster="" id="video1" autoplay controls muted loop >
+                <source src="static/videos/5.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video2">
+              <video poster="" id="video2" autoplay controls muted loop >
+                <source src="static/videos/262.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop >
+                <source src="static/videos/crain2.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        <div class="hero-body">
+        <p style="text-align:center;">Results from real-world videos using different deraining approaches.</p>
+        </div>
+        <!-- Video carousel -->
+          <div id="results-carousel" class="carousel results-carousel" style="width:100%;">
+            <div class="item item-video1">
+              <video poster="" id="video1" autoplay controls muted loop >
+                <source src="static/videos/rb2_Rain.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video2">
+              <video poster="" id="video2" autoplay controls muted loop >
+                <source src="static/videos/67.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video3">
+              <video poster="" id="video3" autoplay controls muted loop >
+                <source src="static/videos/307.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video4">
+              <video poster="" id="video4" autoplay controls muted loop >
+                <source src="static/videos/627.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-video5">
+              <video poster="" id="video5" autoplay controls muted loop >
+                <source src="static/videos/742.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        <div class="hero-body">
+        <p style="text-align:center;">Additional real-world deraining results.</p>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- End video carousel -->
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Results on Desnowing</h2>
+      <center>
+        <div id="results-carousel" class="carousel results-carousel" style="width:100%;">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop >
+            <source src="static/videos/snow/028_0.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop >
+            <source src="static/videos/snow/027_0.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop >
+            <source src="static/videos/snow/snow3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video4">
+          <video poster="" id="video4" autoplay controls muted loop >
+            <source src="static/videos/snow/041_0.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </center>
+      <h2 class="content has-text-centered mt-4">
+        Selected frames from desnowed real-world videos. Base refers to the ablative experiment without attention switching.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+</body>
+</html>
