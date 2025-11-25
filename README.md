@@ -12,8 +12,8 @@
     <b>&nbsp;  <img src="./assets/logo.png" alt="Flawless AI Logo" style="height:1.2em; vertical-align:middle; margin-right:0.2em;"> Flawless AI </b>
     <br>
     <br>
-        <a href=""><img src='https://img.shields.io/badge/arXiv-ZSVD-red' alt='Paper PDF'></a>
-        <a href=""><img src='https://img.shields.io/badge/Project_Page-ZSVD-green' alt='Project Page'></a>
+        <a href="https://arxiv.org/abs/2511.18537"><img src='https://img.shields.io/badge/arXiv-ZSVD-red' alt='Paper PDF'></a>
+        <a href="https://tvaranka.github.io/ZSVD/"><img src='https://img.shields.io/badge/Project_Page-ZSVD-green' alt='Project Page'></a>
     <br>
   </p>
   
@@ -23,7 +23,7 @@
   
 </p>
 
-This repository contains the deraining code of the WACV 2026 paper [ZSVD](https://arxiv.org/list/cs.CV/recent). 
+This repository contains the deraining code of the WACV 2026 paper [ZSVD](https://arxiv.org/abs/2511.18537). 
 
 ## Installation
 We recommend to use uv for fast installation.
