@@ -75,5 +75,15 @@ Here is the collected real rain video dataset [RealRain13](./realrain13/).
 ## Citation
 
 If you find our work helpful, please cite us.
-#TODO: update citation
+```
+@misc{varanka2025zeroshotvideoderainingvideo,
+      title={Zero-Shot Video Deraining with Video Diffusion Models}, 
+      author={Tuomas Varanka and Juan Luis Gonzalez and Hyeongwoo Kim and Pablo Garrido and Xu Yao},
+      year={2025},
+      eprint={2511.18537},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2511.18537}, 
+}
+```
 
